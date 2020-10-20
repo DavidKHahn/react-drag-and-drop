@@ -6,9 +6,9 @@ import { ColorMap } from './types';
 
 const App = () => {
   const [colorMap, setColors] = React.useState<ColorMap>({
-    a: ["blue", "red"],
+    a: ["blue", "red", "yellow"],
     b: ["pink"],
-    c: ["green"]
+    c: ["green", "tan"]
   });
 
   return (
