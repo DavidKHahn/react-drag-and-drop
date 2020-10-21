@@ -18,6 +18,17 @@ const App = () => {
     }
   ]);
 
+  React.useEffect(() => {
+    const data = localStorage.getItem("tier-list");
+    if (data) {
+      setRows(JSON.parse(data));
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem("tier-list", JSON.stringify(rows))
+  });
+
   return (
     <DragDropContext
       onDragEnd={({ destination, source }) => {
