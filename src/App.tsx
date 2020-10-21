@@ -3,7 +3,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { generate } from "shortid";
 import { AuthorList } from "./AuthorList";
 import images from './images.json';
-import { reorderRows } from "./reorder";
+import { reorder, reorderRows } from "./reorder";
 
 const aId = generate();
 const unrankedId = generate();
@@ -44,8 +44,10 @@ const App = () => {
         >
           add row
         </button>
-        {rows.map(row => (
+        {rows.map((row, i) => (
           <AuthorList
+          onUp={() => setRows(reorder(rows, i, i - 1))}
+          onDown={() => setRows(reorder(rows, i, i + 1))}
             internalScroll
             key={row.id}
             listId={row.id}

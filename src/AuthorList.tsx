@@ -8,10 +8,17 @@ interface Props {
   listType?: string;
   internalScroll?: boolean;
   isCombineEnabled?: boolean;
+  onUp: () => void;
+  onDown: () => void;
 }
 
-export const AuthorList: React.FC<Props> = ({ listId, listType, row }) => {
+export const AuthorList: React.FC<Props> = ({ listId, listType, row, onDown, onUp }) => {
   return (
+    <div style={{display: 'flex', alignItems: 'center'}}>
+        <div>
+            <button onClick={onUp}>UP</button>
+            <button onClick={onDown}>DOWN</button>
+        </div>
     <Droppable
       droppableId={listId}
       type={listType}
@@ -22,6 +29,7 @@ export const AuthorList: React.FC<Props> = ({ listId, listType, row }) => {
           <div
           {...dropProvided.droppableProps}
             style={{
+              flex: 1,
               display: "flex",
               backgroundColor: "dodgerblue",
               margin: 20,
@@ -47,5 +55,6 @@ export const AuthorList: React.FC<Props> = ({ listId, listType, row }) => {
           </div>
       )}
     </Droppable>
+    </div>
   );
 };
