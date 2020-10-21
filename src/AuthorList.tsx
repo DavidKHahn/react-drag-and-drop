@@ -19,13 +19,14 @@ export const AuthorList: React.FC<Props> = ({ listId, listType, row }) => {
       isCombineEnabled={false}
     >
       {dropProvided => (
-        <div {...dropProvided.droppableProps}>
           <div
+          {...dropProvided.droppableProps}
             style={{
               display: "flex",
-              backgroundColor: "pink",
+              backgroundColor: "dodgerblue",
               margin: 20,
-              minHeight: 60
+              minHeight: 60,
+              overflowX: 'auto'
             }}
             ref={dropProvided.innerRef}
           >
@@ -44,7 +45,6 @@ export const AuthorList: React.FC<Props> = ({ listId, listType, row }) => {
             ))}
             {dropProvided.placeholder}
           </div>
-        </div>
       )}
     </Droppable>
   );
