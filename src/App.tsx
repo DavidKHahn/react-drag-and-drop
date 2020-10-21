@@ -48,6 +48,7 @@ const App = () => {
           <AuthorList
           onUp={() => setRows(reorder(rows, i, i - 1))}
           onDown={() => setRows(reorder(rows, i, i + 1))}
+          onLabelChange={newText => setRows(rows.map(x => x.id === row.id ? {...row, label: newText } : x))}
             internalScroll
             key={row.id}
             listId={row.id}
